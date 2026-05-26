@@ -17,14 +17,21 @@ Each entry:
 
 ---
 
+## Scope
+
+### 2026-05-26 — Article and LinkedIn content handled outside this repo, not with Claude Code
+- **Why:** Owner is writing the content piece separately through a different workflow.
+- **Scope:** Global — this repo does not contain the article, LinkedIn post, or any written marketing content.
+- **Do not:** Draft, scaffold, or suggest article content in this repo.
+
+---
+
 ## Architecture & Pipeline
 
-[First arch decision goes here. Example structure:]
-
-### YYYY-MM-DD — [Decision in one line]
-- **Why:** [reasoning, including alternatives considered]
-- **Scope:** [global / file / deliverable / etc.]
-- **Do not:** [anti-instruction, if applicable]
+### 2026-05-26 — Email-gate the template download; landing page and capture built on owner's site, not in this repo
+- **Why:** Maximum distribution requires a trust signal (email opt-in), but the lead-capture infrastructure (landing page, ConvertKit/Mailchimp form, confirmation flow) lives on the portfolio site — outside this project's scope.
+- **Scope:** Global — this repo delivers the template files and content only. No HTML landing page, no form handling, no email integration.
+- **Do not:** Build a landing page, email capture form, or any web infrastructure in this repo. The deliverable stops at the downloadable file(s) and written content.
 
 ---
 
