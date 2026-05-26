@@ -7,56 +7,54 @@ session. For session-by-session state, see HANDOFF.md.
 
 ## Goal
 
-[One sentence — what "done" looks like for this arc.]
+Validate the starter defaults with real specialty food founders and ship a
+polished, distribution-ready v2 template.
 
 ## Why this arc, why now
 
-[One or two sentences. The reason matters when you come back in three
-weeks and wonder why this was the priority.]
+The v1 template is built and working but the three-numbers-per-tier defaults
+are working hypotheses, not validated. They need founder confirmation before
+the template gets distributed. The sooner this happens, the less likely we
+are to ship something that embarrasses the practice.
 
 ## Business question this arc answers
 
-[One sentence. Direct connection to the project-level business question
-in CLAUDE.md.]
+Do the starter defaults (cash position, confirmed POs, velocity pulse etc.)
+match what specialty food founders at each tier actually need to track
+Monday morning?
 
 ## Tasks
 
-Work in vertical slices — one section/feature end-to-end before moving
-to the next. Visualizations get reviewed in their own slice, not
-deferred to a polish phase.
-
-- [ ] Specific, scoped, actionable
-- [ ] Each one is a thing Claude Code could plausibly finish in one
-      session
-- [ ] If a task feels too big, break it down before adding it
-- [x] Completed items stay struck or checked, so the trail is visible
+- [ ] Fix `.gitignore` to exclude `~$*.xlsx` (Excel temp lock files)
+- [ ] Update CLAUDE.md stack/voice sections with actual values (Python, openpyxl, etc.)
+- [ ] Share template with 3–5 specialty food founders — collect feedback on the three numbers per tier
+- [ ] Update `data/metrics.py` with validated defaults based on founder input
+- [ ] Regenerate `output/monday-morning-report.xlsx` with validated defaults
+- [ ] Review Cinderhaven case study numbers for internal consistency with other Cinderhaven pieces
+- [ ] Final polish pass on template copy and case study
 
 ## Out of scope for this arc
 
-- Things explicitly NOT being done in this round
-- Captures the decisions about what to defer
-- Prevents scope creep mid-session
+- Automated data connection (Shopify API, bank API, ERP) — separate productized engagement
+- Google Sheets native version via gspread — only if import quality proves unacceptable
+- Landing page or email capture — portfolio site, not this repo
+- Article/LinkedIn content — handled separately
 
 ## Definition of done for this arc
 
-- [ ] Specific, verifiable conditions
-- [ ] Not "the prose is better" — "every section's executive summary
-      has been reviewed and either approved or marked for domain
-      insertion"
-- [ ] When all of these are checked, the arc is done and a new PLAN.md
-      arc gets defined
+- [ ] At least 3 founders have seen the template and confirmed (or corrected) the defaults
+- [ ] `data/metrics.py` updated to reflect validated defaults
+- [ ] `output/monday-morning-report.xlsx` regenerated with final defaults
+- [ ] No placeholder or "Suggested default" labels on metrics that have been validated
+- [ ] Case study numbers internally consistent with Cinderhaven profile
 
 ---
 
 ## Arc history
 
-When an arc completes, archive its goal, completion date, and outcome
-here. Then start a new arc above. Provides continuity without bloating
-the active plan.
-
-### [Date completed] — [Goal]
-- Outcome: [what shipped or what was decided]
-- Tag: [git tag if one was created]
+### 2026-05-26 — Build v1 template generator and case study
+- Outcome: `output/monday-morning-report.xlsx` shipped with 4 tabs (Setup, This Week, History, Where to Find These), 9 starter metrics across 3 tiers, Cinderhaven 12-week case study, Google Sheets import guide. All built with Python/openpyxl. Working hypothesis defaults labeled clearly.
+- Tag: v1.0 (suggested — not yet created)
 
 ---
 

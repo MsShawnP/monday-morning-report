@@ -37,7 +37,10 @@ Each entry:
 
 ## Data & Schema
 
-[Decisions about data sources, schemas, transformations]
+### 2026-05-26 — Label starter defaults as working hypotheses; validate with founders before v2
+- **Why:** No specific research validates the tier-specific metric choices. Domain confidence is based on general CPG knowledge, not observed founder behavior. Overclaiming undermines credibility with the exact audience this template is meant to reach.
+- **Scope:** `data/metrics.py`, all template copy referencing the defaults, any marketing language about the three numbers
+- **Do not:** Present the three defaults per tier as authoritative or research-backed until at least 3–5 founder interviews confirm them. The "Suggested default — change to match your business" label must stay in the template.
 
 ---
 
