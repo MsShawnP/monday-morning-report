@@ -59,14 +59,37 @@ def build_setup_tab(wb):
 
     # --- Instruction ---
     ws.merge_cells("A3:D3")
-    ws["A3"] = "Step 1: Select your revenue tier"
-    ws["A3"].font = Font(name="Source Sans 3", size=12, bold=True, color="333333")
-    ws["A3"].alignment = Alignment(horizontal="left", vertical="center")
+    ws["A3"] = "STEP 1 OF 1  —  Click the dropdown below and choose your revenue tier"
+    ws["A3"].font = Font(name="Source Sans 3", size=11, bold=True, color="FFFFFF")
+    ws["A3"].fill = PatternFill("solid", fgColor="158F75")  # teal instruction bar
+    ws["A3"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
+    ws.row_dimensions[3].height = 28
 
     # --- Tier dropdown ---
+    # Label in A4
+    ws["A4"] = "Your tier:"
+    ws["A4"].font = Font(name="Source Sans 3", size=11, bold=True, color="333333")
+    ws["A4"].alignment = Alignment(horizontal="right", vertical="center")
+    ws.row_dimensions[4].height = 32
+
+    # Dropdown cell B4 — styled to look like a clickable form field
     ws["B4"] = TIER_ORDER[0]  # default
     ws["B4"].font = Font(name="Source Sans 3", size=12, color="1F2E7A", bold=True)
-    ws["B4"].alignment = Alignment(horizontal="left", vertical="center")
+    ws["B4"].fill = PatternFill("solid", fgColor="FFFDE7")   # warm yellow = "editable"
+    ws["B4"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
+    from openpyxl.styles import Border, Side
+    input_border = Border(
+        left=Side(border_style="medium", color="1F2E7A"),
+        right=Side(border_style="medium", color="1F2E7A"),
+        top=Side(border_style="medium", color="1F2E7A"),
+        bottom=Side(border_style="medium", color="1F2E7A"),
+    )
+    ws["B4"].border = input_border
+
+    # "▼ click to change" hint in C4
+    ws["C4"] = "▼  click to change"
+    ws["C4"].font = Font(name="Source Sans 3", size=10, italic=True, color="1F2E7A")
+    ws["C4"].alignment = Alignment(horizontal="left", vertical="center")
 
     tier_list = ",".join(TIER_ORDER)
     dv = DataValidation(
@@ -81,12 +104,11 @@ def build_setup_tab(wb):
     ws.add_data_validation(dv)
     dv.add(ws["B4"])
 
-    ws["A4"] = "Revenue tier:"
-    ws["A4"].font = Font(name="Source Sans 3", size=11, color="595959")
-    ws["A4"].alignment = Alignment(horizontal="left", vertical="center")
-
     # --- Metric labels preview (formula-driven from _Config + B4) ---
-    ws["A6"] = "Your three Monday numbers:"
+    ws.row_dimensions[5].height = 8  # small gap
+
+    ws.merge_cells("A6:D6")
+    ws["A6"] = "Your three Monday numbers will be:"
     ws["A6"].font = Font(name="Source Sans 3", size=11, bold=True, color="333333")
 
     for i, col in enumerate(["B", "C", "D"], start=2):
@@ -141,17 +163,34 @@ def build_this_week_tab(wb):
     ws["A1"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
     ws.row_dimensions[1].height = 36
 
-    # Week of label + date input
-    ws["A2"] = "Week of:"
-    ws["A2"].font = Font(name="Source Sans 3", size=11, color="595959")
+    # Week of label + date input — styled as obvious input field
+    from openpyxl.styles import Border as XlBorder, Side as XlSide
+    input_border = XlBorder(
+        left=XlSide(border_style="medium", color="1F2E7A"),
+        right=XlSide(border_style="medium", color="1F2E7A"),
+        top=XlSide(border_style="medium", color="1F2E7A"),
+        bottom=XlSide(border_style="medium", color="1F2E7A"),
+    )
+    ws["A2"] = "Week of  →"
+    ws["A2"].font = Font(name="Source Sans 3", size=11, bold=True, color="333333")
+    ws["A2"].alignment = Alignment(horizontal="right", vertical="center")
     ws["B2"].number_format = "MMMM D, YYYY"
-    ws["B2"].font = Font(name="Source Sans 3", size=11, bold=True, color="333333")
+    ws["B2"].font = Font(name="Source Sans 3", size=11, bold=True, color="1F2E7A")
+    ws["B2"].fill = PatternFill("solid", fgColor="FFFDE7")
+    ws["B2"].border = input_border
+    ws["B2"].alignment = Alignment(horizontal="center", vertical="center")
+    ws["C2"] = "← type or paste a date"
+    ws["C2"].font = Font(name="Source Sans 3", size=9, italic=True, color="B3B3B3")
+    ws["C2"].alignment = Alignment(horizontal="left", vertical="center")
+    ws.row_dimensions[2].height = 26
 
     # Column headers row
     header_row = 4
-    for col, label in [("B", "This Week"), ("C", "Last Week"), ("D", "Trend"), ("E", "Action")]:
+    for col, label in [("B", "TYPE HERE  ↓"), ("C", "Last Week (auto)"), ("D", "Trend"), ("E", "Action note")]:
         ws[f"{col}{header_row}"] = label
-        ws[f"{col}{header_row}"].font = Font(name="Source Sans 3", size=10, bold=True, color="595959")
+        bold = col == "B"
+        color = "1F2E7A" if col == "B" else "595959"
+        ws[f"{col}{header_row}"].font = Font(name="Source Sans 3", size=10, bold=bold, color=color)
         ws[f"{col}{header_row}"].alignment = Alignment(horizontal="center")
 
     ws[f"A{header_row}"] = "Metric"
@@ -178,11 +217,12 @@ def build_this_week_tab(wb):
         ws[f"A{val_row}"].font = Font(name="Source Sans 3", size=11, bold=True, color="1F2E7A")
         ws[f"A{val_row}"].alignment = Alignment(vertical="center")
 
-        # This Week input cell (highlighted)
+        # This Week input cell — medium navy border + yellow fill = "type here"
         ws[f"B{val_row}"].fill = PatternFill("solid", fgColor="FFFDE7")
         ws[f"B{val_row}"].font = Font(name="Source Sans 3", size=12, bold=True, color="0D0D0D")
         ws[f"B{val_row}"].alignment = Alignment(horizontal="center", vertical="center")
         ws[f"B{val_row}"].number_format = '#,##0.00'
+        ws[f"B{val_row}"].border = input_border
 
         # Last Week — formula from History row 2 (row 1 is headers, row 2 is current week's entry)
         # History col B = metric 1, C = metric 2, D = metric 3
@@ -201,10 +241,12 @@ def build_this_week_tab(wb):
         ws[f"D{val_row}"].font = Font(name="Source Sans 3", size=14, bold=True)
         ws[f"D{val_row}"].alignment = Alignment(horizontal="center", vertical="center")
 
-        # Action note input
+        # Action note input — same input border treatment
         ws[f"E{val_row}"] = "What I'm doing about it…"
         ws[f"E{val_row}"].font = Font(name="Source Sans 3", size=11, italic=True, color="B3B3B3")
-        ws[f"E{val_row}"].alignment = Alignment(vertical="center")
+        ws[f"E{val_row}"].fill = PatternFill("solid", fgColor="FFFDE7")
+        ws[f"E{val_row}"].border = input_border
+        ws[f"E{val_row}"].alignment = Alignment(vertical="center", indent=1)
 
         # Default note row
         ws.merge_cells(f"A{note_row}:E{note_row}")
