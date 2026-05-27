@@ -2,18 +2,17 @@
 
 ## What this project is
 
-[One paragraph. What it is, who it's for, what done looks like at the
-highest level. Filled in based on the 95% confidence prompt conversation.]
+A downloadable Excel template and supporting content for specialty food founders at $3M–$15M revenue. The template gives them a weekly Monday morning ritual: three tier-appropriate numbers (cash position, confirmed POs, velocity pulse, etc.) pulled from sources they already have, entered in under ten minutes, tracked over 52 weeks. Done looks like a validated, polished `.xlsx` file plus a Cinderhaven case study and Google Sheets import guide — packaged well enough to drive inbound and open retainer conversations for Lailara.
 
 **Business question this project answers:** For a specialty food founder at $3M–$15M, what are the three numbers they need every Monday morning, and how do we package them into a downloadable template that builds weekly discipline, drives inbound, and opens retainer conversations?
 
 ## Stack and tools
 
-- Primary language: [your language — e.g., JavaScript, Python, Ruby, etc.]
-- Key packages/libraries: [list the main ones you're using]
-- Database: [if applicable — or remove this line]
-- Entry point: [the main file that starts your project — e.g., index.js, app.py, main.rb]
-- Other tools: [anything else relevant — framework, hosting, etc.]
+- Primary language: Python 3.13
+- Key packages/libraries: openpyxl 3.1.5 (Excel generation — see requirements.txt)
+- Entry point: `generate.py` — run `python generate.py` to produce `output/monday-morning-report.xlsx`
+- Data model: `data/metrics.py` — all starter defaults live here; update after founder validation
+- Docs: `docs/cinderhaven-case-study.md`, `docs/google-sheets-import.md`
 
 ## Project files
 
@@ -28,18 +27,17 @@ FAILURES.md as relevant.
 
 ## Voice and standards
 
-- [Describe how written output should sound — e.g., "casual and
-  clear", "professional but approachable", "technical and precise"]
+- Economist style: sober, declarative, data-forward. Written output
+  tells the truth as the data presents it.
+- Audience is specialty food founders — operationally literate, not
+  finance experts. Plain English, no jargon, no acronyms without
+  explanation.
 - No marketing voice or consultant filler ("leverage," "synergy,"
   "best-in-class," "unlock," "drive value")
 - No hedging that softens a real finding
-
-<!-- OPTIONAL: Data science / reporting projects — uncomment if relevant:
-- Economist style for written deliverables: sober, declarative,
-  data-forward
-- Charts must be readable by non-data-scientist, non-researcher
-  audiences
--->
+- Template copy should be instructional and specific — not
+  inspirational. Founders need to know exactly what to enter and
+  where to find it.
 
 ## Rules
 
