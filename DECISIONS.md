@@ -44,6 +44,15 @@ Each entry:
 
 ---
 
+## Code Conventions
+
+### 2026-05-27 — Design tokens belong at module level in generate.py
+- **Why:** `INPUT_BORDER` and `TREND_STYLES` were copy-pasted across 3 functions. Extracting them makes the design system connection explicit and means color/style changes happen in one place.
+- **Scope:** `generate.py` and any future sheet-builder functions added to it.
+- **Do not:** Reconstruct border or trend-arrow color values inline inside individual tab-builder functions — reference the module-level constants instead.
+
+---
+
 ## Visualization
 
 [Chart conventions, palette decisions, interactivity choices]

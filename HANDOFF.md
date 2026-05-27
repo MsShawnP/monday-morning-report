@@ -47,3 +47,15 @@ work.
 **Next:** Open xlsx, click all three tiers on Setup, verify This Week labels update. Fix `.gitignore` to exclude `~$*.xlsx`. Update CLAUDE.md stack/voice sections. Start new PLAN.md arc: share template with 3–5 founders, validate starter defaults, update `data/metrics.py`.
 
 ---
+
+## 2026-05-27
+
+**Started from:** v1 template shipped. Two housekeeping tasks outstanding: gitignore fix and CLAUDE.md stubs.
+
+**Did:** Fixed `.gitignore` to exclude `~$*.xlsx` and removed committed lock file. Filled in CLAUDE.md stack/voice/project-description placeholders. Ran `/simplify` on `generate.py` — 3-agent parallel review applied cleanly: dead code removed, imports consolidated to top of file, `INPUT_BORDER` and `TREND_STYLES` extracted as module-level constants, style objects hoisted out of 357-iteration history loop. Net −33 lines, behavior unchanged, verified with `python generate.py`.
+
+**State:** `generate.py` clean. `output/monday-morning-report.xlsx` regenerated. CLAUDE.md fully filled in. All housekeeping tasks marked done in PLAN.md. Remaining arc work is entirely external — founder outreach.
+
+**Next:** Share template with 3–5 specialty food founders. Collect feedback on whether the three default metrics per tier match what they actually track Monday morning. Once feedback in: update `data/metrics.py`, regenerate xlsx, final polish pass.
+
+---
