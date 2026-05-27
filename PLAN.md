@@ -25,7 +25,7 @@ Monday morning?
 
 ## Tasks
 
-- [ ] Fix `.gitignore` to exclude `~$*.xlsx` (Excel temp lock files)
+- [x] Fix `.gitignore` to exclude `~$*.xlsx` (Excel temp lock files)
 - [ ] Update CLAUDE.md stack/voice sections with actual values (Python, openpyxl, etc.)
 - [ ] Share template with 3–5 specialty food founders — collect feedback on the three numbers per tier
 - [ ] Update `data/metrics.py` with validated defaults based on founder input
