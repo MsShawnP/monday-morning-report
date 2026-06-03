@@ -56,10 +56,14 @@ output/
   monday-morning-report.xlsx  Generated template (gitignored, rebuild with generate.py)
 ```
 
+## Data contract
+
+Canonical Cinderhaven conformance — 50 SKUs across 5 product lines and 6 contracted retailers.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
 
 ---
 
-Built by [Lailara LLC](https://lailarallc.com) — decision frameworks and operational tooling for specialty food brands scaling into national retail.
+Built by [Lailara LLC](https://lailarallc.com) — data hygiene and analytics consulting for specialty food brands scaling into national retail.
