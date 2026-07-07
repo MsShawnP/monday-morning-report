@@ -1,6 +1,6 @@
 # Monday Morning Report
 
-A downloadable Excel template that gives specialty food founders at $3M–$20M revenue three numbers to track every Monday — and nothing else. Built around the discipline that the brands that scale are the ones that see the same three signals every week, not the ones that have a different dashboard crisis each month.
+A downloadable Excel template that gives specialty food founders at $3M–$20M revenue three numbers to track every Monday — and nothing else.
 
 ## What it does
 
@@ -27,7 +27,11 @@ Select your tier on the Setup tab. The template adapts. Every default is labelle
 
 Includes a Cinderhaven case study (12-week live example showing how tracking three metrics caught a shelf-position risk before it became a deauthorization) and a Google Sheets import guide.
 
-## Run locally
+## Why it matters
+
+The brands that scale are the ones that see the same three signals every week — not the ones that have a different dashboard crisis each month. Founders at this stage don't lack data; they lack a repeatable weekly discipline. A dashboard with thirty tiles gets skimmed and forgotten. Three numbers, the same three every Monday, build the pattern recognition that catches cash crunches, shipping backlogs, and velocity slides while they are still cheap to fix. The template encodes that discipline in a file any founder already knows how to use: Excel.
+
+## Quick start
 
 ```bash
 pip install -r requirements.txt
@@ -38,7 +42,7 @@ Output lands at `output/monday-morning-report.xlsx`.
 
 To update the starter defaults — adjust `data/metrics.py`, then regenerate.
 
-## Stack
+## Tech stack
 
 - Python 3.13
 - openpyxl 3.1.5
