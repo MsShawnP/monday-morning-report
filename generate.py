@@ -63,20 +63,22 @@ def build_setup_tab(wb):
     """Setup tab: tier selector dropdown + metric labels preview."""
     ws = wb.create_sheet("Setup")
 
-    # --- Header ---
-    ws.merge_cells("A1:D1")
+    # --- Header (single cell, wide column spans the visual width) ---
     ws["A1"] = "Monday Morning Report — Setup"
     ws["A1"].font = Font(name="Source Sans 3", bold=True, size=16, color="FFFFFF")
     ws["A1"].fill = PatternFill("solid", fgColor="1F2E7A")
     ws["A1"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
+    for col in ["B", "C", "D"]:
+        ws[f"{col}1"].fill = PatternFill("solid", fgColor="1F2E7A")
     ws.row_dimensions[1].height = 36
 
     # --- Instruction ---
-    ws.merge_cells("A3:D3")
     ws["A3"] = "STEP 1 OF 1  —  Click the dropdown below and choose your revenue tier"
     ws["A3"].font = Font(name="Source Sans 3", size=11, bold=True, color="FFFFFF")
     ws["A3"].fill = PatternFill("solid", fgColor="158F75")  # teal instruction bar
     ws["A3"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
+    for col in ["B", "C", "D"]:
+        ws[f"{col}3"].fill = PatternFill("solid", fgColor="158F75")
     ws.row_dimensions[3].height = 28
 
     # --- Tier dropdown ---
@@ -88,7 +90,7 @@ def build_setup_tab(wb):
     # Dropdown cell B4 — navy border + yellow fill signals "editable"
     ws["B4"] = TIER_ORDER[0]  # default
     ws["B4"].font = Font(name="Source Sans 3", size=12, color="1F2E7A", bold=True)
-    ws["B4"].fill = PatternFill("solid", fgColor="FFFDE7")
+    ws["B4"].fill = PatternFill("solid", fgColor="FEF5D8")
     ws["B4"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
     ws["B4"].border = INPUT_BORDER
 
@@ -113,7 +115,6 @@ def build_setup_tab(wb):
     # --- Metric labels preview (formula-driven from _Config + B4) ---
     ws.row_dimensions[5].height = 8  # small gap
 
-    ws.merge_cells("A6:D6")
     ws["A6"] = "Your three Monday numbers will be:"
     ws["A6"].font = Font(name="Source Sans 3", size=11, bold=True, color="333333")
 
@@ -130,7 +131,6 @@ def build_setup_tab(wb):
         ws[f"B{row + i - 2}"].font = Font(name="Source Sans 3", size=11, color="1F2E7A", bold=True)
 
     # --- Default note ---
-    ws.merge_cells("A11:D11")
     ws["A11"] = (
         "These are suggested defaults based on common specialty food brand priorities. "
         "Change any metric label on the 'This Week' tab to track what matters most to your business."
@@ -152,12 +152,13 @@ def build_this_week_tab(wb):
     """This Week tab: 3 metric blocks with input cells, trend arrows, action notes."""
     ws = wb.create_sheet("This Week")
 
-    # --- Header ---
-    ws.merge_cells("A1:E1")
+    # --- Header (single cell, remaining cells get matching fill) ---
     ws["A1"] = "Monday Morning Report"
     ws["A1"].font = Font(name="Source Sans 3", bold=True, size=16, color="FFFFFF")
     ws["A1"].fill = PatternFill("solid", fgColor="1F2E7A")
     ws["A1"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
+    for col in ["B", "C", "D", "E"]:
+        ws[f"{col}1"].fill = PatternFill("solid", fgColor="1F2E7A")
     ws.row_dimensions[1].height = 36
 
     # Week of label + date input
@@ -166,7 +167,7 @@ def build_this_week_tab(wb):
     ws["A2"].alignment = Alignment(horizontal="right", vertical="center")
     ws["B2"].number_format = "MMMM D, YYYY"
     ws["B2"].font = Font(name="Source Sans 3", size=11, bold=True, color="1F2E7A")
-    ws["B2"].fill = PatternFill("solid", fgColor="FFFDE7")
+    ws["B2"].fill = PatternFill("solid", fgColor="FEF5D8")
     ws["B2"].border = INPUT_BORDER
     ws["B2"].alignment = Alignment(horizontal="center", vertical="center")
     ws["C2"] = "← type or paste a date"
@@ -208,7 +209,7 @@ def build_this_week_tab(wb):
         ws[f"A{val_row}"].alignment = Alignment(vertical="center")
 
         # This Week input cell — navy border + yellow fill = "type here"
-        ws[f"B{val_row}"].fill = PatternFill("solid", fgColor="FFFDE7")
+        ws[f"B{val_row}"].fill = PatternFill("solid", fgColor="FEF5D8")
         ws[f"B{val_row}"].font = Font(name="Source Sans 3", size=12, bold=True, color="0D0D0D")
         ws[f"B{val_row}"].alignment = Alignment(horizontal="center", vertical="center")
         ws[f"B{val_row}"].number_format = '#,##0.00'
@@ -233,12 +234,11 @@ def build_this_week_tab(wb):
         # Action note input
         ws[f"E{val_row}"] = "What I'm doing about it…"
         ws[f"E{val_row}"].font = Font(name="Source Sans 3", size=11, italic=True, color="B3B3B3")
-        ws[f"E{val_row}"].fill = PatternFill("solid", fgColor="FFFDE7")
+        ws[f"E{val_row}"].fill = PatternFill("solid", fgColor="FEF5D8")
         ws[f"E{val_row}"].border = INPUT_BORDER
         ws[f"E{val_row}"].alignment = Alignment(vertical="center", indent=1)
 
-        # Note row
-        ws.merge_cells(f"A{note_row}:E{note_row}")
+        # Note row (single cell, no merge — column widths carry the visual span)
         ws[f"A{note_row}"] = "← Suggested default — change this label on the Setup tab to track what matters most"
         ws[f"A{note_row}"].font = Font(name="Source Sans 3", size=9, italic=True, color="B3B3B3")
         ws[f"A{note_row}"].alignment = Alignment(horizontal="left", vertical="center")
@@ -271,8 +271,7 @@ def build_history_tab(wb):
     """History tab: 52 pre-created rows, row 3 formula-linked to This Week."""
     ws = wb.create_sheet("History")
 
-    # --- Instruction block ---
-    ws.merge_cells("A1:G1")
+    # --- Instruction block (single cell, remaining cells get no content) ---
     ws["A1"] = (
         "Each Monday: after completing 'This Week', copy the values from row 3 "
         "and paste as values into the next blank row below. This builds your trend history over time."
@@ -352,15 +351,14 @@ def build_reference_tab(wb):
     """Where to Find These Numbers — per-metric source guide with gotchas."""
     ws = wb.create_sheet("Where to Find These")
 
-    # --- Header ---
-    ws.merge_cells("A1:B1")
+    # --- Header (single cell, col B gets matching fill) ---
     ws["A1"] = "Where to Find These Numbers"
     ws["A1"].font = Font(name="Source Sans 3", bold=True, size=16, color="FFFFFF")
     ws["A1"].fill = PatternFill("solid", fgColor="1F2E7A")
     ws["A1"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
+    ws["B1"].fill = PatternFill("solid", fgColor="1F2E7A")
     ws.row_dimensions[1].height = 36
 
-    ws.merge_cells("A2:B2")
     ws["A2"] = (
         "For each default metric, this tab tells you exactly where to look and what to watch for. "
         "If you've changed a metric label on the Setup tab, refer to that metric's own data source."
@@ -374,12 +372,12 @@ def build_reference_tab(wb):
     for tier_key in TIER_ORDER:
         tier = TIERS[tier_key]
 
-        # Tier section header
-        ws.merge_cells(f"A{current_row}:B{current_row}")
+        # Tier section header (single cell, col B gets matching fill)
         ws[f"A{current_row}"] = f"Tier: {tier['label']} — {tier['range_note']}"
         ws[f"A{current_row}"].font = Font(name="Source Sans 3", size=12, bold=True, color="FFFFFF")
         ws[f"A{current_row}"].fill = PatternFill("solid", fgColor="1F2E7A")
         ws[f"A{current_row}"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
+        ws[f"B{current_row}"].fill = PatternFill("solid", fgColor="1F2E7A")
         ws.row_dimensions[current_row].height = 24
         current_row += 1
 
