@@ -1,6 +1,6 @@
 # Monday Morning Report
 
-A downloadable Excel template that gives specialty food founders at $3M–$20M revenue three numbers to track every Monday — and nothing else.
+A downloadable Excel template that gives specialty food founders at $3M–$20M revenue three numbers to track every Monday — and nothing else. In the Cinderhaven case study, the velocity number surfaced a shelf-position slide weeks before it became a deauthorization conversation.
 
 ## What it does
 
