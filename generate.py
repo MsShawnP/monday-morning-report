@@ -65,7 +65,7 @@ def build_setup_tab(wb):
 
     # --- Header (single cell, wide column spans the visual width) ---
     ws["A1"] = "Monday Morning Report — Setup"
-    ws["A1"].font = Font(name="Source Sans 3", bold=True, size=16, color="FFFFFF")
+    ws["A1"].font = Font(name="Playfair Display", bold=True, size=16, color="FFFFFF")
     ws["A1"].fill = PatternFill("solid", fgColor="1F2E7A")
     ws["A1"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
     for col in ["B", "C", "D"]:
@@ -154,7 +154,7 @@ def build_this_week_tab(wb):
 
     # --- Header (single cell, remaining cells get matching fill) ---
     ws["A1"] = "Monday Morning Report"
-    ws["A1"].font = Font(name="Source Sans 3", bold=True, size=16, color="FFFFFF")
+    ws["A1"].font = Font(name="Playfair Display", bold=True, size=16, color="FFFFFF")
     ws["A1"].fill = PatternFill("solid", fgColor="1F2E7A")
     ws["A1"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
     for col in ["B", "C", "D", "E"]:
@@ -353,7 +353,7 @@ def build_reference_tab(wb):
 
     # --- Header (single cell, col B gets matching fill) ---
     ws["A1"] = "Where to Find These Numbers"
-    ws["A1"].font = Font(name="Source Sans 3", bold=True, size=16, color="FFFFFF")
+    ws["A1"].font = Font(name="Playfair Display", bold=True, size=16, color="FFFFFF")
     ws["A1"].fill = PatternFill("solid", fgColor="1F2E7A")
     ws["A1"].alignment = Alignment(horizontal="left", vertical="center", indent=1)
     ws["B1"].fill = PatternFill("solid", fgColor="1F2E7A")
