@@ -6,7 +6,7 @@
 
 Cinderhaven is a $25M specialty food brand distributed across natural, conventional grocery, and club channels. The founder — who still runs the Monday morning check herself — adopted a three-number pulse in late Q3. By week 12, she had caught one significant problem early and prevented a shelf-position loss that would have cost an estimated $80,000–$150,000 in annual velocity.
 
-The three numbers she tracks at the $15M–$20M tier:
+The three numbers she tracks (read against the template's top tier, $15M–$20M — Cinderhaven, at $25M, sits just above the template's stated $3M–$20M range and uses the top-tier metric set):
 
 | # | Metric | Why |
 |---|---|---|
