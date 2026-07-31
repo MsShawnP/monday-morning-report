@@ -64,11 +64,10 @@ TIERS = {
                 "label": "Velocity Pulse",
                 "description": "Units sold per store per week — top 3 SKUs at your key retailer",
                 "unit": "units_per_store",
-                "source_system": "Retailer portal (Retail Link for Walmart, Partner Hub for Target, KeHE Connect, UNFI portal)",
+                "source_system": "Retailer portal (Retail Link for Walmart, KeHE Connect, UNFI portal)",
                 "source_detail": (
                     "Walmart: Retail Link → Sales & Inventory → Item-Level Sales, "
                     "filter by your item numbers, last 4 weeks, ÷ store count. "
-                    "Target: Partners Online → Scorecard. "
                     "Natural/specialty: KeHE Connect or UNFI Insights, weekly scan."
                 ),
                 "watch_for": (
@@ -138,11 +137,11 @@ TIERS = {
                 "source_detail": (
                     "OTIF: Retail Link (Walmart) → Supplier Performance → OTIF score. "
                     "Deductions: your AR aging for short-pays this week. "
-                    "Chargebacks: retailer deduction portal (Target Vendor Portal, "
-                    "Kroger vendor portal) — log in weekly and screenshot new items."
+                    "Chargebacks: retailer deduction portal (Kroger vendor portal, "
+                    "Costco Vendor Hub) — log in weekly and screenshot new items."
                 ),
                 "watch_for": (
-                    "Walmart OTIF below 95% triggers automatic fines. "
+                    "Walmart OTIF below 98% triggers automatic fines. "
                     "A deduction spike (3+ new deductions in one week) often signals "
                     "a systemic issue — wrong UPC, wrong case pack, labeling error."
                 ),

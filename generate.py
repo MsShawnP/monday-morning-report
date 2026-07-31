@@ -445,7 +445,7 @@ def apply_global_styles(wb):
             header=0.3, footer=0.3
         )
 
-        ws.oddFooter.left.text = "Monday Morning Report — lailara.com"
+        ws.oddFooter.left.text = "Monday Morning Report — lailarallc.com"
         ws.oddFooter.left.size = 9
         ws.oddFooter.left.font = "Source Sans 3"
         ws.oddFooter.right.text = "Page &P of &N"

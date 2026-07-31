@@ -2,9 +2,9 @@
 
 ## What this project is
 
-A downloadable Excel template and supporting content for specialty food founders at $3M–$15M revenue. The template gives them a weekly Monday morning ritual: three tier-appropriate numbers (cash position, confirmed POs, velocity pulse, etc.) pulled from sources they already have, entered in under ten minutes, tracked over 52 weeks. Done looks like a validated, polished `.xlsx` file plus a Cinderhaven case study and Google Sheets import guide — packaged well enough to drive inbound and open retainer conversations for Lailara.
+A downloadable Excel template and supporting content for specialty food founders at $3M–$20M revenue. The template gives them a weekly Monday morning ritual: three tier-appropriate numbers (cash position, confirmed POs, velocity pulse, etc.) pulled from sources they already have, entered in under ten minutes, tracked over 52 weeks. Done looks like a validated, polished `.xlsx` file plus a Cinderhaven case study and Google Sheets import guide — packaged well enough to drive inbound and open retainer conversations for Lailara.
 
-**Business question this project answers:** For a specialty food founder at $3M–$15M, what are the three numbers they need every Monday morning, and how do we package them into a downloadable template that builds weekly discipline, drives inbound, and opens retainer conversations?
+**Business question this project answers:** For a specialty food founder at $3M–$20M, what are the three numbers they need every Monday morning, and how do we package them into a downloadable template that builds weekly discipline, drives inbound, and opens retainer conversations?
 
 ## Stack and tools
 
