@@ -66,4 +66,4 @@ The discipline is the product. The spreadsheet is just the container.
 ---
 
 *Built by Lailara — we help specialty food brands turn data into decisions.*
-*[lailara.com](https://lailara.com)*
+*[lailarallc.com](https://lailarallc.com)*
