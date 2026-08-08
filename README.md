@@ -64,6 +64,25 @@ output/
 
 Canonical Cinderhaven conformance — 50 SKUs across 5 product lines and 6 contracted retailers.
 
+## Client engagement use
+
+The demo template (`generate.py`) ships all three revenue tiers behind a chooser.
+For a **retainer deliverable**, client mode ships one tier — chosen in
+`engagement.yml` — branded for the client and optionally populated with their KPI
+values (see [INPUT-SPEC.md](INPUT-SPEC.md)):
+
+```bash
+pip install -e ../engagement-template/lib      # the shared lailara_engagement scaffold
+python client_mode.py --config engagement.yml [--input client-data/kpis.csv] \
+    --out client-output [--final]
+```
+
+Output to `client-output/` (gitignored): a branded workbook (client name in the
+Playfair title, `lailarallc.com` footer, a Provenance sheet with config hash /
+input SHA-256 / validation status), `[DRAFT]` until `--final`; or a Data Readiness
+Report if the tier is invalid. The demo template is never edited — it stays
+byte-identical (golden-locked).
+
 ## License
 
 MIT — see [LICENSE](LICENSE).

@@ -1,0 +1,14 @@
+# Lailara LLC — Engagement config (DEMO). Canonical demo identity; demo: true so
+# the deploy guard ignores it. A real client run uses engagement.yml with the
+# client's own name, tier, and (optionally) a KPI file.
+client:
+  name: "Cinderhaven Provisions (demo)"
+engagement:
+  id: "CINDERHAVEN-DEMO"
+as_of_date: "2026-01-31"
+prepared_by: "Lailara LLC"
+demo: true
+basis:
+  # Client mode ships ONE tier (the retainer deliverable); the demo template keeps
+  # the 3-tier chooser. Must be one of: "$3M–$10M", "$10M–$15M", "$15M–$20M".
+  tier: "$10M–$15M"
